@@ -1,6 +1,27 @@
 
 
+<div align="center">
+
 # 🏥 Mediroza Hospital — Web Application Penetration Test
+
+
+</div>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Skill-Cybersecurity-404040?style=flat-square&labelColor=C00000" />
+  <img src="https://img.shields.io/badge/Mediroza%Hospital%20v7.2-0070C0?style=flat-square&labelColor=000000" />
+  <img src="https://img.shields.io/badge/Kali%20Linux-v2026.2-E87500?style=flat-square&labelColor=000000&logo=kalilinux&logoColor=white" />
+  <img src="https://img.shields.io/badge/Penetration%20Testing-C00000?style=flat-square&labelColor=000000&logo=kalilinux&logoColor=white" />
+  <img src="https://img.shields.io/badge/GitHub-404040?style=flat-square&labelColor=0070C0&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/NetworkWalks-404040?style=flat-square&labelColor=C00000" />
+  <img src="https://img.shields.io/badge/Ethical%20Hacking-E87500?style=flat-square&labelColor=000000&logo=kalilinux&logoColor=white" />
+  <img src="https://img.shields.io/badge/Chimanda%20Mbangweta%20CyberSecurity%20Specialist-C00000?style=flat-square" />
+</p>
+
+---
+
+
+
 
 ## 📌 Project Overview
 
@@ -144,6 +165,7 @@ Gobuster tested filenames and directories using the supplied wordlist.
 
 ![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/gobuster%20scan.png)
 
+
 Figure 6: Gobuster directory and file enumeration.
 
 During enumeration, an old backup/database-related file was identified that had not been properly secured.
@@ -153,6 +175,8 @@ A patient-related directory was also discovered.
 The patient directory eventually led to the hospital's Patient Portal.
 
 This demonstrated why sensitive backups and application directories should not be left publicly accessible on a production web server.
+
+
 
 
 6. ## 🔐 Patient Portal and SQL Injection Testing
@@ -171,17 +195,16 @@ Normal authentication attempts produced an Incorrect password response.
 
 Further testing was then conducted on the login form to determine whether user input was properly validated.
 
-
-
-Figure 8: Patient login testing.
-
 An SQL Injection test was performed against the username field.
 
 One of the test strings used during the authorized assessment was:
 
 admin' --
 
-![image alt}(https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/login3.png)
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/login3.png)
+Figure 8
+
+
 
 ![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/pdf%20files.png)
 
@@ -192,6 +215,9 @@ The testing demonstrated that the application's authentication mechanism was vul
 According to the results of the authorized assessment, the vulnerable input made it possible to bypass the intended authentication controls and reach protected patient resources.
 
 This was one of the most serious vulnerabilities identified during the project.
+
+
+
 
 7. ## 📄 Discovery of Patient PDF Reports
 
@@ -208,6 +234,7 @@ Figure 10: Example pathology laboratory report accessed during the authorized te
 The ability to reach these documents demonstrated the potential security impact of the SQL Injection vulnerability.
 
 In a real hospital environment, unauthorized access to medical records could lead to a serious confidentiality and privacy breach.
+
 
 
 
@@ -268,6 +295,8 @@ This stage demonstrated that encrypting a document does not provide sufficient p
 
 - Weak PDF passwords
 
+  --
+
 ## 🔗 Attack Chain
 
 Reconnaissance
@@ -310,6 +339,8 @@ Password Testing with John the Ripper
 
 The assessment showed how several security weaknesses can be combined to create a much greater security risk.
 
+---
+
 ## 🛠️ Recommendations
 
 - Remove backup files from publicly accessible web directories.
@@ -333,8 +364,11 @@ The assessment showed how several security weaknesses can be combined to create 
 - Regularly update the operating system, web server and application components.
 
 - Conduct regular vulnerability assessments and penetration tests.
+- 
 
-💡 Key Takeaways
+  
+
+## 💡 Key Takeaways
 
 - Reconnaissance is an important part of penetration testing because it provides information that may assist later stages of the assessment.
   
@@ -369,4 +403,20 @@ Every activity documented in this repository was performed within an authorized 
 ----
 
 ## 👤 Author
+
+**Chimanda P Mbangweta**
+
+Cybersecurity Professional B083B
+
+LinkedIn:  https://www.linkedin.com/in/chimanda-p-mbangweta-45972772
+
+________________________________________
+# 📌Project Information
+**Program Name:** *Cybersecurity at Networkwalks | **Week:** 4 | **Project:** Cybersecurity & Pen testing & Exploitation | **Repository:** GitHub*
+
+
+---
+ 
+ 
+
 
