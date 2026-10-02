@@ -35,25 +35,18 @@ The main objectives of this project were to:
 
 ⚙️ Tools Used
 
-WHOIS
+1. WHOIS
 
-WhatWeb
+2. WhatWeb
 
-Wafw00f
+3. Wafw00f
 
-Nmap / Zenmap
+4. Nmap / Zenmap
 
-Legion
+5. Gobuster
 
-Gobuster
+6. John the Ripper
 
-SQL Injection Testing
-
-John the Ripper
-
-pdf2john
-
-Networkwalks Password Cracker
 
 🔍 Penetration Testing Procedure
 
@@ -69,57 +62,51 @@ WHOIS returned information about the domain registration including the registrar
 
 The results showed that the domain was registered through NameCheap, Inc.
 
-
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/mediroza%20whois.png)
 
 Figure 1: WHOIS reconnaissance results.
 
 This information formed part of the initial reconnaissance stage of the penetration test.
 
+
 2. 🖥️ Website Technology Identification Using WhatWeb
 
 The next stage was to identify technologies being used by the Mediroza Hospital website.
 
-The following command was used:
-
-whatweb medirozahospital.com
+The following command was used:  whatweb medirozahospital.com
 
 The results identified information including:
 
-HTTP response codes.
+HTTP response codes,LiteSpeed web server technology, the target IP address, HTTP redirects and Web server headers.
 
-LiteSpeed web server technology.
+The IP address identified during the assessment was: 199.188.201.16
 
-The target IP address.
 
-HTTP redirects.
 
-Web server headers.
-
-The IP address identified during the assessment was:
-
-199.188.201.16
-
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/whatweb%20report.png)
 
 
 Figure 2: WhatWeb reconnaissance results.
 
 The information gathered helped provide a better understanding of the technologies supporting the application.
 
+
+
 3. 🛡️ Web Application Firewall Detection
 
 The Wafw00f tool was used to determine whether the website was protected by a Web Application Firewall.
 
-The command used was:
+The command used was: wafw00f medirozahospital.com
 
-wafw00f medirozahospital.com
+The scan reported that the website was protected by the LiteSpeed Web Application Firewall.
 
-The scan reported that the website was protected by a LiteSpeed Web Application Firewall.
-
-
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/Wafw00f%20report.png)
 
 Figure 3: Wafw00f results showing LiteSpeed WAF detection.
 
+
 Identifying a Web Application Firewall is important during reconnaissance because it helps the penetration tester understand some of the security measures already protecting the application.
+
 
 4. 🔎 Network and Port Enumeration
 
@@ -137,25 +124,13 @@ Port 80 — HTTP
 
 Port 443 — HTTPS
 
-
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/zenmap%20report.png)
 
 Figure 4: Zenmap/Nmap scan results.
 
-Legion was also used to perform additional service enumeration.
-
-The Legion scan identified services including:
-
-Port 25/tcp — SMTP
-
-Port 80/tcp — HTTP
-
-Port 443/tcp — HTTPS
-
-
-
-Figure 5: Legion service enumeration results.
-
 These results provided additional information about the network services exposed by the target.
+
+
 
 5. 📂 Directory and File Enumeration Using Gobuster
 
@@ -163,13 +138,11 @@ The next stage involved searching the website for directories and files that wer
 
 Gobuster was used for this process.
 
-The command used during the assessment was similar to:
-
-gobuster dir -u https://medirozahospital.com -w /usr/share/wordlists/dirb/common.txt -x php,txt,pdf -k
+The command used during the assessment was similar to: gobuster dir -u https://medirozahospital.com -w /usr/share/wordlists/dirb/common.txt -x php,txt,pdf -k
 
 Gobuster tested filenames and directories using the supplied wordlist.
 
-
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/gobuster%20scan.png)
 
 Figure 6: Gobuster directory and file enumeration.
 
@@ -181,15 +154,16 @@ The patient directory eventually led to the hospital's Patient Portal.
 
 This demonstrated why sensitive backups and application directories should not be left publicly accessible on a production web server.
 
-6. 🔐 Patient Portal and SQL Injection Testing
 
-The directory enumeration stage led to the discovery of the Patient Portal located at:
+6. ## 🔐 Patient Portal and SQL Injection Testing
 
-/patient/login.php
+The directory enumeration stage led to the discovery of the Patient Portal located at: medirozahospital.com/patient/login.php
 
 The portal required a username and password to access patient laboratory results.
 
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/login.png)
 
+!=[image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/login%202.png)
 
 Figure 7: Mediroza Hospital Patient Portal.
 
@@ -207,7 +181,9 @@ One of the test strings used during the authorized assessment was:
 
 admin' --
 
+![image alt}(https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/login3.png)
 
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/pdf%20files.png)
 
 Figure 9: SQL Injection test entered in the Patient Portal.
 
@@ -217,7 +193,7 @@ According to the results of the authorized assessment, the vulnerable input made
 
 This was one of the most serious vulnerabilities identified during the project.
 
-7. 📄 Discovery of Patient PDF Reports
+7. ## 📄 Discovery of Patient PDF Reports
 
 After accessing the patient section of the application, three patient pathology reports were identified.
 
@@ -225,7 +201,7 @@ The reports were stored as PDF documents and were protected with passwords.
 
 One of the documents is shown below.
 
-
+![image alt ](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/Screenshot%202026-10-02%20162115.png)
 
 Figure 10: Example pathology laboratory report accessed during the authorized test.
 
@@ -233,7 +209,9 @@ The ability to reach these documents demonstrated the potential security impact 
 
 In a real hospital environment, unauthorized access to medical records could lead to a serious confidentiality and privacy breach.
 
-8. 🔑 PDF Password Testing Using John the Ripper
+
+
+8. ## 🔑 PDF Password Testing Using John the Ripper
 
 The patient PDF documents were password protected.
 
@@ -249,7 +227,7 @@ john --format=PDF --wordlist=/usr/share/wordlists/rockyou.txt patient_report_2.h
 
 The screenshot below shows John the Ripper successfully loading the PDF hash and performing the password test.
 
-
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/password%20cracking%202.png) 
 
 Figure 11: John the Ripper PDF password test for patient_report_2.
 
@@ -257,7 +235,7 @@ The same procedure was carried out against another protected PDF document.
 
 john --format=PDF --wordlist=/usr/share/wordlists/rockyou.txt patient_report_3.txt
 
-
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/password%20cracking%203.png) 
 
 Figure 12: John the Ripper PDF password test for patient_report_3.
 
@@ -267,29 +245,30 @@ An online password-testing tool provided by Networkwalks was also used to demons
 
 The screenshot below shows a successful password match.
 
-
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/password%20cracking.png)
 
 Figure 13: Networkwalks password cracker showing a successful password match.
 
 This stage demonstrated that encrypting a document does not provide sufficient protection when the password itself is weak or predictable.
 
-🚨 Vulnerabilities Identified
 
-Publicly discoverable sensitive directories and files
+## 🚨Vulnerabilities Identified
 
-Exposed backup/database-related file
+- Publicly discoverable sensitive directories and files
 
-SQL Injection vulnerability
+- Exposed backup/database-related file
 
-Weak authentication controls
+- SQL Injection vulnerability
 
-Authentication bypass
+- Weak authentication controls
 
-Exposure of confidential patient PDF documents
+ -Authentication bypass
 
-Weak PDF passwords
+- Exposure of confidential patient PDF documents
 
-🔗 Attack Chain
+- Weak PDF passwords
+
+## 🔗 Attack Chain
 
 Reconnaissance
 
@@ -331,51 +310,53 @@ Password Testing with John the Ripper
 
 The assessment showed how several security weaknesses can be combined to create a much greater security risk.
 
-🛠️ Recommendations
+## 🛠️ Recommendations
 
-Remove backup files from publicly accessible web directories.
+- Remove backup files from publicly accessible web directories.
 
-Store sensitive files outside the public web root.
+- Store sensitive files outside the public web root.
 
-Use prepared statements and parameterized SQL queries.
+- Use prepared statements and parameterized SQL queries.
 
-Properly validate all user-supplied input.
+- Properly validate all user-supplied input.
 
-Implement strong authentication controls.
+- Implement strong authentication controls.
 
-Implement authorization checks before providing access to patient records.
+- Implement authorization checks before providing access to patient records.
 
-Use strong and unique passwords for encrypted documents.
+- Use strong and unique passwords for encrypted documents.
 
-Monitor failed login attempts.
+- Monitor failed login attempts.
 
-Maintain application and web server logs.
+- Maintain application and web server logs.
 
-Regularly update the operating system, web server and application components.
+- Regularly update the operating system, web server and application components.
 
-Conduct regular vulnerability assessments and penetration tests.
+- Conduct regular vulnerability assessments and penetration tests.
 
 💡 Key Takeaways
 
-Reconnaissance is an important part of penetration testing because it provides information that may assist later stages of the assessment.
+- Reconnaissance is an important part of penetration testing because it provides information that may assist later stages of the assessment.
+  
+- Directory enumeration can reveal resources that were not intended to be publicly accessible.
+  
+- Backup files should never be stored inside publicly accessible directories.
+  
+- SQL Injection can have a serious impact when user input is passed directly to a database without proper protection.
+  
+- Authentication alone is not sufficient; applications should also enforce authorization for individual resources.
 
-Directory enumeration can reveal resources that were not intended to be publicly accessible.
+- Medical and other confidential documents should be protected using strong access controls.
 
-Backup files should never be stored inside publicly accessible directories.
+- Password-protected documents should use strong and unpredictable passwords.
 
-SQL Injection can have a serious impact when user input is passed directly to a database without proper protection.
+- John the Ripper can be used during authorized security assessments to evaluate password strength.
 
-Authentication alone is not sufficient; applications should also enforce authorization for individual resources.
+- Several relatively small security weaknesses can sometimes be chained together to produce a serious security breach.
+- 
+ ---
 
-Medical and other confidential documents should be protected using strong access controls.
-
-Password-protected documents should use strong and unpredictable passwords.
-
-John the Ripper can be used during authorized security assessments to evaluate password strength.
-
-Several relatively small security weaknesses can sometimes be chained together to produce a serious security breach.
-
-⚖️ Disclaimer
+## ⚖️ Disclaimer
 
 The information provided here is meant solely for learning and legitimate and sanctioned research purposes.
 
@@ -385,24 +366,7 @@ Accessing or testing computer systems without proper authorization is illegal in
 
 Every activity documented in this repository was performed within an authorized educational environment.
 
-👤 Author
+----
 
-Chimanda P Mbangweta
+## 👤 Author
 
-Cybersecurity Professional B083B
-
-LinkedIn: https://www.linkedin.com/in/chimanda-p-mbangweta-45972772
-
-📌 Project Information
-
-Program Name: Cybersecurity Internship at Networkwalks
-
-Project: Mediroza Hospital Web Application Penetration Testing
-
-Environment: Kali Linux
-
-Repository: GitHub
-
-Purpose: Educational and authorized penetration testing
-
-Mediroza Hospital Web Application Penetration Test — 
