@@ -295,7 +295,7 @@ This stage demonstrated that encrypting a document does not provide sufficient p
 
 - Weak PDF passwords
 
-  --
+  ---
 
 ## 🔗 Attack Chain
 
@@ -341,6 +341,8 @@ The assessment showed how several security weaknesses can be combined to create 
 
 ---
 
+
+
 ## 🛠️ Recommendations
 
 - Remove backup files from publicly accessible web directories.
@@ -365,6 +367,7 @@ The assessment showed how several security weaknesses can be combined to create 
 
 - Conduct regular vulnerability assessments and penetration tests.
 - 
+---
 
   
 
@@ -387,7 +390,7 @@ The assessment showed how several security weaknesses can be combined to create 
 - John the Ripper can be used during authorized security assessments to evaluate password strength.
 
 - Several relatively small security weaknesses can sometimes be chained together to produce a serious security breach.
-- 
+  
  ---
 
 ## ⚖️ Disclaimer
@@ -400,7 +403,7 @@ Accessing or testing computer systems without proper authorization is illegal in
 
 Every activity documented in this repository was performed within an authorized educational environment.
 
-----
+---
 
 ## 👤 Author
 
