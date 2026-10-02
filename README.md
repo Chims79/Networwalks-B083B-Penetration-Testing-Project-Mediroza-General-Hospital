@@ -219,9 +219,9 @@ This was one of the most serious vulnerabilities identified during the project.
 
 
 
-7. ## 📄 Discovery of Patient PDF Reports
+7. ## 📄 Discovery of Patient PDF Reports and Staff Data Base Records
 
-After accessing the patient section of the application, three patient pathology reports were identified.
+An old staff record of a database was also discovers and it exposed staff personal information line salaries. After accessing the patient section of the application, three patient pathology reports were identified.
 
 The reports were stored as PDF documents and were protected with passwords.
 
@@ -229,7 +229,14 @@ One of the documents is shown below.
 
 ![image alt ](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/75c2749588f6446ff6beadbd79754d8289f25064/Screenshot%202026-10-02%20162115.png)
 
-Figure 10: Example pathology laboratory report accessed during the authorized test.
+
+
+![image alt](https://github.com/Chims79/Networwalks-B083B-Penetration-Testing-Project-Mediroza-General-Hospital/blob/7c977d08ce50f7f8929096b9a5c88e00ebb5812b/Database.png) 
+
+
+
+
+Figure 10: Example pathology laboratory report accessed during the authorized test and Database Schema.
 
 The ability to reach these documents demonstrated the potential security impact of the SQL Injection vulnerability.
 
